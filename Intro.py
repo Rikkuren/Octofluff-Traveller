@@ -3,14 +3,6 @@ from PathA import *
 from PathB import *
 from PathC import *
 
-# answer_A = ["A", "a"]
-# answer_B = ["B", "b"]
-# answer_C = ["C", "c"]
-# yes = ["Y", "y", "Yes", "yes", "YES"]
-# no = ["N", "n", "No", "no", "NO"]
-
-required = ("\nUse only A, B, C\n")
-
 def intro():
   print ("You wake up, groggy and confused. You look around, trying to get\n"
   "your bearings only to have no idea where you are but you realise its\n"
@@ -38,6 +30,25 @@ def intro():
     elif(choice == "C"):
       pathC()
       loop = False
+    elif(choice == "Q"):
+      quit = str(input("Are you sure you want to quit? (Y/N): ")).upper()
+      qLoop = False
+      if(quit == "Y"): 
+        qLoop = True
+        loop = False
+      else:
+        print("Resuming game...")
+      while(qLoop):
+        savefile=str(input("You have chosen to quit, would you like to save your progress? (Y/N): ")).upper()
+        if(savefile == "Y"):
+          # save the file
+          print("Progress saved successfully. Thank you for playing Octofluff Traveller!")
+          qLoop = False
+        elif(savefile == "N"):
+          print("You will quit without saving your progress. Thank you for playing Octofluff Traveller!")
+          qLoop = False
+        else:
+          print("I think you accidentally chose something other than Y or N, please try again")
     else:
       print("I think your finger slipped, please try again chosing only A, B or C")
 
