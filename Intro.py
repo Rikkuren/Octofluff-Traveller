@@ -1,10 +1,13 @@
 import time
+from PathA import *
+from PathB import *
+from PathC import *
 
-answer_A = ["A", "a"]
-answer_B = ["B", "b"]
-answer_C = ["C", "c"]
-yes = ["Y", "y", "Yes", "yes", "YES"]
-no = ["N", "n", "No", "no", "NO"]
+# answer_A = ["A", "a"]
+# answer_B = ["B", "b"]
+# answer_C = ["C", "c"]
+# yes = ["Y", "y", "Yes", "yes", "YES"]
+# no = ["N", "n", "No", "no", "NO"]
 
 required = ("\nUse only A, B, C\n")
 
@@ -20,5 +23,22 @@ def intro():
   print("\n A. Stay perfectly still\n"
   " B. Grab the pocket knife and get ready\n"
   " C. Throw the fluff covered mint towards the noise")
+  
+  loop = True
 
-  choice=str(input("\nPick a letter: "))
+  while(loop):
+    choice=str(input("\nPick a letter: ")).upper()
+
+    if(choice == "A"):
+      pathA()
+      loop = False
+    elif(choice == "B"):
+      pathB()
+      loop = False
+    elif(choice == "C"):
+      pathC()
+      loop = False
+    else:
+      print("I think your finger slipped, please try again chosing only A, B or C")
+
+  
