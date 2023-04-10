@@ -38,18 +38,23 @@ def intro():
         loop = False
       else:
         print("Resuming game...")
+        time.sleep(1)
       while(qLoop):
-        savefile=str(input("You have chosen to quit, would you like to save your progress? (Y/N): ")).upper()
-        if(savefile == "Y"):
+        saveFile=str(input("You have chosen to quit, would you like to save your progress? (Y/N): ")).upper()
+        if(saveFile == "Y"):
           # save the file
+          with open('save.txt', 'w') as output:
+            output.write(__name__+".py")
           print("Progress saved successfully. Thank you for playing Octofluff Traveller!")
           qLoop = False
-        elif(savefile == "N"):
+        elif(saveFile == "N"):
           print("You will quit without saving your progress. Thank you for playing Octofluff Traveller!")
           qLoop = False
         else:
           print("I think you accidentally chose something other than Y or N, please try again")
     else:
       print("I think your finger slipped, please try again chosing only A, B or C")
+      time.sleep(1)
 
-  
+if __name__ == "builtins":
+  intro()
